@@ -1,0 +1,83 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="apple-touch-icon" href="icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+    </head>
+    <body>
+
+        <!-- Add your site or application content here -->
+
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+
+        <!-- 
+
+#,UFC_FIGHTER_ID_A,UFC_FIGHTER_ID_B,a_win,a_comp_odds,a"_off"icial_odds,b_comp_odds,b_official_odds,
+1,Ronnie Lawrence,Saidyokub Kakhramonov,1,-163,-120,+163,+100,
+2,Karl Roberson,Kennedy Nzechukwu,0,+137,+135,-137,-155,
+3,David Onama,Garrett Armfield,1,-123,-800,+138,+575,
+4,Antonina Shevchenko,Cortney Casey,1,-118,-170,+118,+145,
+5,Cody Brundage,Tresean Gore,0,+105,+125,-103,-145,
+6,Jamie Mullarkey,Michael Johnson,1,-161,-210,+195,+180,
+7,Aiemann Zahabi,Ricky Turcios,0,+151,+165,-146,-195,
+8,Chase Sherman,Jared Vanderaa,0,+109,+165,-109,-195,
+9,Douglas Silva de Andrade,Said Nurmagomedov,0,+119,+370,-119,-460,
+10,Armen Petrosyan,Caio Borralho,0,+123,+195,-105,-230,
+11,Rafael Dos Anjos,Rafael Fiziev,1,-122,+175,+129,-205,
+X,Cynthia Calvillo,Nina Nunes,0,+108,,-108,,
+         -->
+
+        <div x-data='{ predictions: [ {"date":"2022-07-09","class":2,"a":"Ronnie Lawrence","b":"Saidyokub Kakhramonov","result":1,"a_comp_odds":"-163","a_official_odds":"-120","b_comp_odds":"+163","b_official_odds":"+100"}
+                                      , {"date":"2022-07-09","class":3,"a":"Karl Roberson","b":"Kennedy Nzechukwu","result":0,"a_comp_odds":"+137","a_official_odds":"+135","b_comp_odds":"-137","b_official_odds":"-155"}
+                                      , {"date":"2022-07-09","class":3,"a":"David Onama","b":"Garrett Armfield","result":1,"a_comp_odds":"-123","a_official_odds":"-800","b_comp_odds":"+138","b_official_odds":"+575"}
+                                      , {"date":"2022-07-09","class":4,"a":"Antonina Shevchenko","b":"Cortney Casey","result":1,"a_comp_odds":"-118","a_official_odds":"-170","b_comp_odds":"+118","b_official_odds":"+145"}
+                                      , {"date":"2022-07-09","class":4,"a":"Cody Brundage","b":"Tresean Gore","result":0,"a_comp_odds":"+105","a_official_odds":"+125","b_comp_odds":"-103","b_official_odds":"-145"}
+                                      , {"date":"2022-07-09","class":6,"a":"Jamie Mullarkey","b":"Michael Johnson","result":1,"a_comp_odds":"-161","a_official_odds":"-210","b_comp_odds":"+195","b_official_odds":"+180"}
+                                      , {"date":"2022-07-09","class":0,"a":"Aiemann Zahabi","b":"Ricky Turcios","result":0,"a_comp_odds":"+151","a_official_odds":"+165","b_comp_odds":"-146","b_official_odds":"-195"}
+                                      , {"date":"2022-07-09","class":3,"a":"Chase Sherman","b":"Jared Vanderaa","result":0,"a_comp_odds":"+109","a_official_odds":"+165","b_comp_odds":"-109","b_official_odds":"-195"}
+                                      , {"date":"2022-07-09","class":1,"a":"Douglas Silva de Andrade","b":"Said Nurmagomedov","result":0,"a_comp_odds":"+119","a_official_odds":"+370","b_comp_odds":"-119","b_official_odds":"-460"}
+                                      , {"date":"2022-07-09","class":0,"a":"Armen Petrosyan","b":"Caio Borralho","result":0,"a_comp_odds":"+123","a_official_odds":"+195","b_comp_odds":"-105","b_official_odds":"-230"}
+                                      , {"date":"2022-07-09","class":1,"a":"Rafael Dos Anjos","b":"Rafael Fiziev","result":1,"a_comp_odds":"-122","a_official_odds":"+175","b_comp_odds":"+129","b_official_odds":"-205"}
+                                      , {"date":"2022-07-09","class":5,"a":"Cynthia Calvillo","b":"Nina Nunes","result":0,"a_comp_odds":"+108","a_official_odds":null,"b_comp_odds":"-108","b_official_odds":null}
+                                      ] }'>
+
+
+
+            <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+                <template x-for="p in predictions">
+
+                    <li class="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200">
+                        <div class="w-full flex items-center justify-between p-6 space-x-6">
+                          <div class="flex-1 truncate">
+                            <p class="mt-1 text-gray-500 text-sm truncate" x-text="p.date"></p>
+                            <div class="flex items-center space-x-3">
+                              <h3 class="text-gray-900 text-sm font-medium truncate" x-text="p.a"></h3>
+                              <span class="flex-shrink-0 inline-block px-2 py-0.5 text-green-800 text-xs font-medium bg-green-100 rounded-full" x-show="p.result" x-text="p.a_comp_odds"></span>
+                              <span class="flex-shrink-0 inline-block px-2 py-0.5 text-slate-800 text-xs font-medium bg-slate-100 rounded-full" x-show="!p.result" x-text="p.a_comp_odds"></span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                              <h3 class="text-gray-900 text-sm font-medium truncate" x-text="p.b"></h3>
+                              <span class="flex-shrink-0 inline-block px-2 py-0.5 text-green-800 text-xs font-medium bg-green-100 rounded-full" x-show="!p.result" x-text="p.b_comp_odds"></span>
+                              <span class="flex-shrink-0 inline-block px-2 py-0.5 text-slate-800 text-xs font-medium bg-slate-100 rounded-full" x-show="p.result" x-text="p.b_comp_odds"></span>
+                            </div>
+                          </div>
+                        </div>
+                    </li>
+
+                </template>
+            </ul>
+        </div>
+
+    </body>
+</html>
