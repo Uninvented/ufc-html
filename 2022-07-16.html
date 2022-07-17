@@ -1,0 +1,83 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="apple-touch-icon" href="icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+    </head>
+    <body>
+
+        <!-- Add your site or application content here -->
+
+        <script defer src="https://cdn.tailwindcss.com"></script>
+        <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        <!-- 
+
+{ UFC_FIGHTER_ID_A:'Emily Ducote'         , UFC_FIGHTER_ID_B:'Jessica Penne'      , DATE_ID: 1.657930e+09       , prediction: 0.0  ,  probability: 0.458688}
+{ UFC_FIGHTER_ID_A':Dalcha Lungiambula'   , UFC_FIGHTER_ID_B:'Punahele Soriano'   , DATE_ID: 1.657930e+09       , prediction: 0.0  ,  probability: 0.460499}
+{ UFC_FIGHTER_ID_A':Abubakar Nurmagomedov', UFC_FIGHTER_ID_B:'Phil Rowe'          , DATE_ID: 1.657930e+09       , prediction: 0.0  ,  probability: 0.465029}
+{ UFC_FIGHTER_ID_A':Amanda Lemos'         , UFC_FIGHTER_ID_B:'Michelle Waterson'  , DATE_ID: 1.657930e+09       , prediction: 0.0  ,  probability: 0.465741}
+{ UFC_FIGHTER_ID_A':Matt Schnell'         , UFC_FIGHTER_ID_B:'Sumudaerji'         , DATE_ID: 1.657930e+09       , prediction: 0.0  ,  probability: 0.478119}
+{ UFC_FIGHTER_ID_A':Brian Ortega'         , UFC_FIGHTER_ID_B:'Yair Rodriguez'     , DATE_ID: 1.657930e+09       , prediction: 0.5  ,  probability: 0.489727}
+{ UFC_FIGHTER_ID_A':Lauren Murphy'        , UFC_FIGHTER_ID_B:'Miesha Tate'        , DATE_ID: 1.657930e+09       , prediction: 0.0  ,  probability: 0.489730}
+{ UFC_FIGHTER_ID_A':Li Jingliang'         , UFC_FIGHTER_ID_B:'Muslim Salikhov'    , DATE_ID: 1.657930e+09       , prediction: 0.0  ,  probability: 0.492799}
+{ UFC_FIGHTER_ID_A':Bill Algeo'           , UFC_FIGHTER_ID_B:'Billy Quarantillo'  , DATE_ID: 1.657930e+09       , prediction: 0.0  ,  probability: 0.498606}
+{ UFC_FIGHTER_ID_A':Jack Shore'           , UFC_FIGHTER_ID_B:'Ricky Simon'        , DATE_ID: 1.657930e+09       , prediction: 1.0  ,  probability: 0.508326}
+{ UFC_FIGHTER_ID_A':Dustin Stoltzfus'     , UFC_FIGHTER_ID_B:'Dwight Grant'       , DATE_ID: 1.657930e+09       , prediction: 1.0  ,  probability: 0.523299}
+{ UFC_FIGHTER_ID_A':Charles Jourdain'     , UFC_FIGHTER_ID_B:'Shane Burgos'       , DATE_ID: 1.657930e+09       , prediction: 1.0  ,  probability: 0.548883}
+{ UFC_FIGHTER_ID_A':Herbert Burns'        , UFC_FIGHTER_ID_B:'Khusein Askhabov'   , DATE_ID: 1.657930e+09       , prediction: 1.0  ,  probability: 0.558704}
+{ UFC_FIGHTER_ID_A':Da-Un Jung'           , UFC_FIGHTER_ID_B:'Dustin Jacoby'      , DATE_ID: 1.657930e+09       , prediction: 1.0  ,  probability: 0.559862}
+~
+         -->
+
+        <div x-data="{ predictions: [ { UFC_FIGHTER_ID_A: 'Emily Ducote'         ,  UFC_FIGHTER_ID_B: 'Jessica Penne'    ,  DATE_ID: 1.657930e+09,  prediction: 0.0,  probability: 0.458688 }
+                                    , { UFC_FIGHTER_ID_A: 'Dalcha Lungiambula'   ,  UFC_FIGHTER_ID_B: 'Punahele Soriano' ,  DATE_ID: 1.657930e+09,  prediction: 0.0,  probability: 0.460499 }
+                                    , { UFC_FIGHTER_ID_A: 'Abubakar Nurmagomedov',  UFC_FIGHTER_ID_B: 'Phil Rowe'        ,  DATE_ID: 1.657930e+09,  prediction: 0.0,  probability: 0.465029 }
+                                    , { UFC_FIGHTER_ID_A: 'Amanda Lemos'         ,  UFC_FIGHTER_ID_B: 'Michelle Waterson',  DATE_ID: 1.657930e+09,  prediction: 0.0,  probability: 0.465741 }
+                                    , { UFC_FIGHTER_ID_A: 'Matt Schnell'         ,  UFC_FIGHTER_ID_B: 'Sumudaerji'       ,  DATE_ID: 1.657930e+09,  prediction: 0.0,  probability: 0.478119 }
+                                    , { UFC_FIGHTER_ID_A: 'Brian Ortega'         ,  UFC_FIGHTER_ID_B: 'Yair Rodriguez'   ,  DATE_ID: 1.657930e+09,  prediction: 0.5,  probability: 0.489727 }
+                                    , { UFC_FIGHTER_ID_A: 'Lauren Murphy'        ,  UFC_FIGHTER_ID_B: 'Miesha Tate'      ,  DATE_ID: 1.657930e+09,  prediction: 0.0,  probability: 0.489730 }
+                                    , { UFC_FIGHTER_ID_A: 'Li Jingliang'         ,  UFC_FIGHTER_ID_B: 'Muslim Salikhov'  ,  DATE_ID: 1.657930e+09,  prediction: 0.0,  probability: 0.492799 }
+                                    , { UFC_FIGHTER_ID_A: 'Bill Algeo'           ,  UFC_FIGHTER_ID_B: 'Billy Quarantillo',  DATE_ID: 1.657930e+09,  prediction: 0.0,  probability: 0.498606 }
+                                    , { UFC_FIGHTER_ID_A: 'Jack Shore'           ,  UFC_FIGHTER_ID_B: 'Ricky Simon'      ,  DATE_ID: 1.657930e+09,  prediction: 1.0,  probability: 0.508326 }
+                                    , { UFC_FIGHTER_ID_A: 'Dustin Stoltzfus'     ,  UFC_FIGHTER_ID_B: 'Dwight Grant'     ,  DATE_ID: 1.657930e+09,  prediction: 1.0,  probability: 0.523299 }
+                                    , { UFC_FIGHTER_ID_A: 'Charles Jourdain'     ,  UFC_FIGHTER_ID_B: 'Shane Burgos'     ,  DATE_ID: 1.657930e+09,  prediction: 1.0,  probability: 0.548883 }
+                                    , { UFC_FIGHTER_ID_A: 'Herbert Burns'        ,  UFC_FIGHTER_ID_B: 'Khusein Askhabov' ,  DATE_ID: 1.657930e+09,  prediction: 1.0,  probability: 0.558704 }
+                                    , { UFC_FIGHTER_ID_A: 'Da-Un Jung'           ,  UFC_FIGHTER_ID_B: 'Dustin Jacoby'    ,  DATE_ID: 1.657930e+09,  prediction: 1.0,  probability: 0.559862 }
+                                    ] }">
+
+
+
+            <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+                <template x-for="p in predictions">
+
+                    <li class="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200">
+                        <div class="w-full flex items-center justify-between p-6 space-x-6">
+                          <div class="flex-1 truncate">
+                            <p class="mt-1 text-gray-500 text-sm truncate" x-text="p.DATE_ID"></p>
+                            <div class="flex items-center space-x-3">
+                              <h3 class="text-gray-900 text-sm font-medium truncate" x-text="p.UFC_FIGHTER_ID_A"></h3>
+                              <span class="flex-shrink-0 inline-block px-2 py-0.5 text-green-800 text-xs font-medium bg-green-100 rounded-full" x-show="p.prediction" x-text="`Winner (${p.probability})`"></span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                              <h3 class="text-gray-900 text-sm font-medium truncate" x-text="p.UFC_FIGHTER_ID_B"></h3>
+                              <span class="flex-shrink-0 inline-block px-2 py-0.5 text-green-800 text-xs font-medium bg-green-100 rounded-full" x-show="!p.prediction" x-text="`Winner (${p.probability})`"></span>
+                            </div>
+                          </div>
+                        </div>
+                    </li>
+
+                </template>
+            </ul>
+        </div>
+
+    </body>
+</html>
