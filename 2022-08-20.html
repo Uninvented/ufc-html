@@ -1,0 +1,183 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+    <body>
+
+        <!-- Add your site or application content here -->
+
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        <script src="./formatted_preds.json"></script>
+
+        <div 
+            x-data="{ predictions: [] }"
+            x-init='predictions = [   {
+        "fighter_a": "Jose Aldo",
+        "fighter_b": "Merab Dvalishvili",
+        "prediction": 0,
+        "probability": {
+            "prob_a_win": 0.3176562640559395,
+            "prob_a_lose": 0.5800690198507106,
+            "draw": 0.04404378906207206,
+            "no_contest": 0.05823092703127785
+        }
+    },
+    {
+        "fighter_a": "Harry Hunsucker",
+        "fighter_b": "Tyson Pedro",
+        "prediction": 0,
+        "probability": {
+            "prob_a_win": 0.324753346302168,
+            "prob_a_lose": 0.587982330965056,
+            "draw": 0.04533190650351808,
+            "no_contest": 0.0419324162292579
+        }
+    },
+    {
+        "fighter_a": "Luke Rockhold",
+        "fighter_b": "Paulo Costa",
+        "prediction": 0,
+        "probability": {
+            "prob_a_win": 0.3390843068286728,
+            "prob_a_lose": 0.5772485742773468,
+            "draw": 0.043153949033711655,
+            "no_contest": 0.040513169860268816
+        }
+    },
+    {
+        "fighter_a": "Luis Saldana",
+        "fighter_b": "Sean Woodson",
+        "prediction": 0,
+        "probability": {
+            "prob_a_win": 0.4377900070582037,
+            "prob_a_lose": 0.4753333524809091,
+            "draw": 0.04560571035308886,
+            "no_contest": 0.04127093010779839
+        }
+    },
+    {
+        "fighter_a": "Lucie Pudilova",
+        "fighter_b": "Wu Yanan",
+        "prediction": 1,
+        "probability": {
+            "prob_a_win": 0.46798462614185665,
+            "prob_a_lose": 0.44423539219707775,
+            "draw": 0.044426275956021125,
+            "no_contest": 0.04335370570504457
+        }
+    },
+    {
+        "fighter_a": "Amir Albazi",
+        "fighter_b": "Francisco Figueiredo",
+        "prediction": 1,
+        "probability": {
+            "prob_a_win": 0.4691016682177299,
+            "prob_a_lose": 0.44246408971576706,
+            "draw": 0.044510751893453285,
+            "no_contest": 0.043923490173049765
+        }
+    },
+    {
+        "fighter_a": "Daniel Da Silva",
+        "fighter_b": "Victor Altamirano",
+        "prediction": 1,
+        "probability": {
+            "prob_a_win": 0.4795791739253756,
+            "prob_a_lose": 0.43423043003512335,
+            "draw": 0.04409863710623373,
+            "no_contest": 0.042091758933267345
+        }
+    },
+    {
+        "fighter_a": "Kamaru Usman",
+        "fighter_b": "Leon Edwards",
+        "prediction": 1,
+        "probability": {
+            "prob_a_win": 0.47982879128675304,
+            "prob_a_lose": 0.4287835990386586,
+            "draw": 0.06711480788621836,
+            "no_contest": 0.024272801788370026
+        }
+    },
+    {
+        "fighter_a": "AJ Fletcher",
+        "fighter_b": "Ange Loosa",
+        "prediction": 1,
+        "probability": {
+            "prob_a_win": 0.48778555981284316,
+            "prob_a_lose": 0.4229379900788083,
+            "draw": 0.04832722197982724,
+            "no_contest": 0.04094922812852134
+        }
+    },
+    {
+        "fighter_a": "Aoriqileng",
+        "fighter_b": "Jay Perrin",
+        "prediction": 1,
+        "probability": {
+            "prob_a_win": 0.49436169936010266,
+            "prob_a_lose": 0.41747604495731927,
+            "draw": 0.04492197242706701,
+            "no_contest": 0.043240283255511075
+        }
+    },
+    {
+        "fighter_a": "Alexandr Romanov",
+        "fighter_b": "Marcin Tybura",
+        "prediction": 1,
+        "probability": {
+            "prob_a_win": 0.5090881061013703,
+            "prob_a_lose": 0.4033014160801298,
+            "draw": 0.0484664324453858,
+            "no_contest": 0.039144045373114056
+        }
+    },
+    {
+        "fighter_a": "Jared Gordon",
+        "fighter_b": "Leonardo Santos",
+        "prediction": 1,
+        "probability": {
+            "prob_a_win": 0.5492526365393084,
+            "prob_a_lose": 0.3627455904657981,
+            "draw": 0.04786102600229165,
+            "no_contest": 0.040140746992601894
+        }
+    }
+]'
+        >
+
+
+
+            <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+                <template x-for="p in predictions">
+
+                    <li class="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200">
+                        <div class="w-full flex items-center justify-between p-6 space-x-6">
+                          <div class="flex-1 truncate">
+                            <p class="mt-1 text-gray-500 text-sm truncate" x-text="p.DATE_ID"></p>
+                            <div class="flex items-center space-x-3">
+                              <h3 class="text-gray-900 text-sm font-medium truncate" x-text="p.fighter_a"></h3>
+                              <span class="flex-shrink-0 inline-block px-2 py-0.5 text-green-800 text-xs font-medium bg-green-100 rounded-full" x-show="p.prediction" x-text="`Winner (${p.probability.prob_a_win})`"></span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                              <h3 class="text-gray-900 text-sm font-medium truncate" x-text="p.fighter_b"></h3>
+                              <span class="flex-shrink-0 inline-block px-2 py-0.5 text-green-800 text-xs font-medium bg-green-100 rounded-full" x-show="!p.prediction" x-text="`Winner (${p.probability.prob_a_lose})`"></span>
+                            </div>
+                          </div>
+                        </div>
+                    </li>
+
+                </template>
+            </ul>
+        </div>
+
+    </body>
+</html>
