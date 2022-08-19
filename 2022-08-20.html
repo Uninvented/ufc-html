@@ -165,13 +165,13 @@
                             <p class="mt-1 text-gray-500 text-sm truncate" x-text="p.DATE_ID"></p>
                             <div class="flex items-center space-x-3">
                               <h3 class="text-gray-900 text-sm font-medium truncate" x-text="p.fighter_a"></h3>
+                              <span class="flex-shrink-0 inline-block px-2 py-0.5 text-gray-800 text-xs font-medium bg-gray-100 rounded-full" x-text="`${p.probability.prob_a_win.toFixed(6)}`"></span>
                               <span class="flex-shrink-0 inline-block px-2 py-0.5 text-green-800 text-xs font-medium bg-green-100 rounded-full" x-show="p.prediction" x-text="`Winner`"></span>
-                              <span class="flex-shrink-0 inline-block px-2 py-0.5 text-gray-800 text-xs font-medium bg-gray-100 rounded-full" x-show= "p.prediction" x-text="`Probability: ${p.probability.prob_a_win.toFixed(5)}`"></span>
                             </div>
                             <div class="flex items-center space-x-3">
                               <h3 class="text-gray-900 text-sm font-medium truncate" x-text="p.fighter_b"></h3>
+                              <span class="flex-shrink-0 inline-block px-2 py-0.5 text-gray-800 text-xs font-medium bg-gray-100 rounded-full" x-text="`${p.probability.prob_a_lose.toFixed(6)}`"></span>
                               <span class="flex-shrink-0 inline-block px-2 py-0.5 text-green-800 text-xs font-medium bg-green-100 rounded-full" x-show="!p.prediction" x-text="`Winner`"></span>
-                              <span class="flex-shrink-0 inline-block px-2 py-0.5 text-gray-800 text-xs font-medium bg-gray-100 rounded-full" x-show= "!p.prediction" x-text="`Probability: ${p.probability.prob_a_lose.toFixed(5)}`"></span>
                             </div>
                           </div>
                         </div>
